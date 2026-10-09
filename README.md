@@ -3,7 +3,7 @@
 **Track:** AI + Cybersecurity  
 **Status:** Hackathon/portfolio prototype
 
-SignalShield helps people inspect suspicious scholarship offers, job messages, payment requests, and messages containing instructions aimed at an AI agent. It extracts explainable warning signals, quotes the relevant text, and provides safer verification steps.
+SignalShield is packaged as a flat, no-subfolders deployment so it can be uploaded through GitHub’s file uploader. SignalShield helps people inspect suspicious scholarship offers, job messages, payment requests, and messages containing instructions aimed at an AI agent. It extracts explainable warning signals, quotes the relevant text, and provides safer verification steps.
 
 It is designed around a simple principle: **show evidence, explain uncertainty, and help the user verify independently.**
 
@@ -143,3 +143,8 @@ This repository includes `render.yaml` for Render Blueprint deployment.
 The default deployment works without an AI API key using local indicator checks. To enable optional model analysis, add `OPENAI_API_KEY`, `OPENAI_BASE_URL`, and `AI_MODEL` as environment variables in the Render service settings. Never put API keys in source code or commit them to GitHub.
 
 Free hosting may spin down when idle and can take a short time to wake up. Check the host's current free-plan terms before submitting.
+
+
+## Flat GitHub upload layout
+
+All runtime files are intentionally at the repository root: `app.py`, `analyzer.py`, `index.html`, `style.css`, `app.js`, `requirements.txt`, `Procfile`, and `render.yaml`. The Flask app serves these root-level assets directly; no `templates/` or `static/` folders are required. The test file is `test_analyzer.py`.

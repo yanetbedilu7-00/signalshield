@@ -1,11 +1,19 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from analyzer import analyze_message
 
 app = Flask(__name__)
 
 @app.get("/")
 def index():
-    return render_template("index.html")
+    return send_from_directory(".", "index.html")
+
+@app.get("/style.css")
+def stylesheet():
+    return send_from_directory(".", "style.css")
+
+@app.get("/app.js")
+def javascript():
+    return send_from_directory(".", "app.js")
 
 @app.post("/api/analyze")
 def analyze():
